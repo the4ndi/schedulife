@@ -118,50 +118,5 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         }
                     }
                 });
-
-/*
-        // create new user or register new user
-        mAuth
-                .createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
-                    {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Registration successful!",
-                                    Toast.LENGTH_LONG)
-                                    .show();
-
-                            // hide the progress bar
-                           // progressBar.setVisibility(View.GONE);
-
-                            // if the user created intent to login activity
-                            Intent intent
-                                    = new Intent(SignUp.this,
-                                    MainActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-
-                            // Registration failed
-                            Toast.makeText(
-                                    getApplicationContext(),
-                                    "Registration failed!!"
-                                            + " Please try again later",
-                                    Toast.LENGTH_LONG)
-                                    .show();
-
-                            // hide the progress bar
-                           // progressBar.setVisibility(View.GONE);
-                        }
-                    }
-                });*/
     }
-
-
-
-
-
 }
