@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#242424"
+    android:background="@drawable/loginbackground"
     android:orientation="vertical"
     android:weightSum="7"
     tools:context=".MainActivity">
@@ -19,25 +19,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center">
+
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="75dp"
-                    android:src="@drawable/schedule_logo"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="211dp"
+                    android:layout_marginTop="100dp"
+                    android:padding="45dp"
+                    android:src="@drawable/schedullifelogo" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right|center">
-            </LinearLayout>
+
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:weightSum="3"
+        android:weightSum="0"
         android:orientation="vertical"
-        android:layout_weight="2">
+        android:layout_weight="3">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,12 +45,32 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_height="39dp"
+                android:layout_marginHorizontal="85dp"
                 android:fontFamily="arial"
-                android:text="Sign up"
+                android:paddingHorizontal="20dp"
+                android:text="ENTER CREDENTIALS"
                 android:textColor="#ffffff"
-                android:textSize="38sp" />
+                android:textSize="18sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/namesignup"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="#d8002e"
+                android:fontFamily="arial"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:textColorHint="#EEEEEE" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,12 +84,12 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/edit_txt_1"
+                android:background="#d8002e"
                 android:fontFamily="arial"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
-                android:textColorHint="#DADADA" />
+                android:textColorHint="#EEEEEE" />
         </LinearLayout>
 
         <LinearLayout
@@ -85,12 +103,12 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/edit_txt_1"
+                android:background="#d8002e"
                 android:fontFamily="arial"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:paddingLeft="20dp"
-                android:textColorHint="#DADADA" />
+                android:textColorHint="#EEEEEE" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
