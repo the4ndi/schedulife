@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#242424"
+    android:background="@drawable/loginbackground"
     android:orientation="vertical"
     android:weightSum="7"
     tools:context=".MainActivity">
@@ -15,25 +15,32 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="75dp"
-                    android:src="@drawable/schedule_logo"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="211dp"
+                    android:layout_marginTop="100dp"
+                    android:padding="45dp"
+                    android:src="@drawable/schedullifelogo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ui_grad" />
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right|center">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_ui_grad"/>
-            </LinearLayout>
+
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout
@@ -51,12 +58,13 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_height="39dp"
+                android:layout_marginHorizontal="85dp"
                 android:fontFamily="arial"
-                android:text="Login"
+                android:paddingHorizontal="20dp"
+                android:text="ENTER CREDENTIALS"
                 android:textColor="#ffffff"
-                android:textSize="38sp" />
+                android:textSize="18sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,30 +78,31 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/edit_txt_1"
+                android:background="#d8002e"
                 android:fontFamily="arial"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
-                android:textColorHint="#DADADA" />
+                android:textColorHint="#EEEEEE" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center"
             android:layout_weight="1">
+
             <EditText
                 android:id="@+id/passwordlogin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/edit_txt_1"
+                android:background="#d8002e"
                 android:fontFamily="arial"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:paddingLeft="20dp"
-                android:textColorHint="#DADADA" />
+                android:textColorHint="#EEEEEE" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -108,7 +117,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ic_rectangle_grad"
             android:fontFamily="arial"
-            android:text="Log In"
+            android:text="Log-In"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="23sp" />
