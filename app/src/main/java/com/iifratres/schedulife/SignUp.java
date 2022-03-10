@@ -18,16 +18,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private Button btn_signin;
     private EditText name_text,email_text,password_text;
     private TextView signup_text;
-
     private FirebaseAuth mAuth;
-    FirebaseAuth.AuthStateListener mAuthStateListener;
+    private DatabaseReference mDatabase;
 
+
+    FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +85,16 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         email = email_text.getText().toString().trim();
         password = password_text.getText().toString();
 
+
         // Validations for input email and password
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(getApplicationContext(),
+                    "Please enter name!",
+                    Toast.LENGTH_LONG)
+                    .show();
+            return;
+
+        }
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(),
                     "Please enter email!!",
@@ -106,9 +118,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("firebase", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            mDatabase = FirebaseDatabase.getInstance().getReference();
+                            mDatabase.child("users").child(user.getUid()).child("Name").setValue(name_text.getText().toString());
+                            mDatabase.child("users").child(user.getUid()).child("Email").setValue(email_text.getText().toString());
+                            mDatabase.child("users").child(user.getUid()).child("Password").setValue(password_text.getText().toString());
                             Intent intent
-                                    = new Intent(SignUp.this,
-                                    MainActivity.class);
+                                   = new Intent(SignUp.this,
+                                   Personalaccount.class);
                             startActivity(intent);
                             //updateUI(user);
                         } else {

@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulife">
+        <activity
+            android:name=".Personalaccount"
+            android:exported="false" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.

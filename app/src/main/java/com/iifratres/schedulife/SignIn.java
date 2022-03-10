@@ -69,7 +69,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    private void loginUserAccount()
+    public void loginUserAccount()
     {
         // show the visibility of progress bar to show loading
       //  progressbar.setVisibility(View.VISIBLE);
@@ -105,10 +105,10 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                                     @NonNull Task<AuthResult> task)
                             {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(),
-                                            "Login successful!!",
-                                            Toast.LENGTH_LONG)
-                                            .show();
+                                    //Toast.makeText(getApplicationContext(),
+                                     //       "Login successful!!",
+                                      //      Toast.LENGTH_LONG)
+                                        //    .show();
 
                                     // hide the progress bar
                                    // progressBar.setVisibility(View.GONE);
@@ -117,7 +117,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                                     // intent to home activity
                                     Intent intent
                                             = new Intent(SignIn.this,
-                                            MainActivity.class);
+                                            Personalaccount.class);
                                     startActivity(intent);
                                 }
 
