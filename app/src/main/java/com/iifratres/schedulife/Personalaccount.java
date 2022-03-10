@@ -35,10 +35,15 @@ public class Personalaccount extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_personalaccount);
         name_text = (EditText) findViewById(R.id.namepersonal);
         email_text = (EditText) findViewById(R.id.emailpersonal);
         password_text = (EditText) findViewById(R.id.passwordpersonal);
+        //Intent intent
+           //     = new Intent(Personalaccount.this,
+            //    MainActivity.class);
+        //startActivity(intent);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         getdata(user.getUid());
