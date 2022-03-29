@@ -118,6 +118,9 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                                     Intent intent
                                             = new Intent(SignIn.this,
                                             Personalaccount.class);
+                                            //CreateEvent.class);
+                                         //if you uncomment this and comment line 120 it crashes
+
                                     startActivity(intent);
                                 }
 

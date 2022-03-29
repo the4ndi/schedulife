@@ -27,7 +27,7 @@ public class Personalaccount extends AppCompatActivity {
     private EditText name_text,email_text,password_text;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private Button btn_editname;
+    //private Button btn_editname;
 
 
 
@@ -40,19 +40,19 @@ public class Personalaccount extends AppCompatActivity {
         name_text = (EditText) findViewById(R.id.namepersonal);
         email_text = (EditText) findViewById(R.id.emailpersonal);
         password_text = (EditText) findViewById(R.id.passwordpersonal);
-        //Intent intent
-           //     = new Intent(Personalaccount.this,
-            //    MainActivity.class);
-        //startActivity(intent);
+        Intent intent
+               = new Intent(Personalaccount.this,
+                MainActivity.class);
+        startActivity(intent);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         getdata(user.getUid());
         //btn_editname.setOnClickListener(this);
     }
-    public void onClick(View view){
-        if(view == btn_editname){
-        }
-    }
+    //public void onClick(View view){
+       // if(view == btn_editname){
+      //  }
+    //}
 
     private void getdata(String userId) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
