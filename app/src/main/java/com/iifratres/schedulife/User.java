@@ -15,21 +15,73 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 public class User {
+    String userId;
+    String eventNumber;
+    String Name;
+    String email;
+    String PhoneNumber;
+    String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getEventNumber() {
+        return eventNumber;
+    }
+
+    public void setEventNumber(String eventNumber) {
+        this.eventNumber = eventNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+    public String getName() {
+        return this.Name;
+    }
+
+    public void setName(String newName) {
+        mDatabase.child("users").child(this.userId).child("Name").setValue(newName);
+    }
+
     /*
-        Database file system
-        users>userId>(FirstName,LastName,Email,PhoneNumber, Events)
-     */
-
-    public String userId;
-    public int eventNumber;
-
-
-    private String FirstName;
-    public String LastName;
-    public String Email;
-    public String PhoneNumber;
-    public String[] Events;
+            Database file system
+            users>userId>(FirstName,LastName,Email,PhoneNumber, Events)
+         */
+    //public String userId;
+    //public int eventNumber;
+    //public String Name;
+    //public String Email;
+    //public String PhoneNumber;
+    //public String[] Events;
 
 
     DatabaseReference mDatabase;
@@ -42,39 +94,23 @@ public class User {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    private void getFirstName(String uid) {
 
-    }
 
     private void updateUserInfo() {
 
-        mDatabase.child("users").child(userId).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-                    FirstName = task.getResult().child("FirstName").toString();
-                    LastName = task.getResult().child("LastName").toString();
-                }
+        mDatabase.child("users").child(userId).get().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.e("firebase", "Error getting data", task.getException());
+            }
+            else {
+                Name = task.getResult().child("Name").toString();
             }
         });
     }
 
-    public String getEmail() {
-        return this.Email;
-    }
-    private String getLastName() {
-        return this.LastName;
-    }
 
-    private void setFirstName(String newName) {
-        mDatabase.child("users").child(this.userId).child("FirstName").setValue(newName);
-    }
-    private void setLastName(String newName) {
-        mDatabase.child("users").child(this.userId).child("LastName").setValue(newName);
-    }
+
+
 
     public boolean AddEvent(String eventName, String eventDescription, String eventDate) {
         DatabaseReference usersRef = mDatabase.child("users").child(this.userId).child("Events");
