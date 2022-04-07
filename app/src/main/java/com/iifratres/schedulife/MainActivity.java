@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personalaccount);
+        setContentView(R.layout.activity_login_sign_up);
                 //activity_createevent);
         mAuth = FirebaseAuth.getInstance();
         signout = (Button) findViewById(R.id.signout);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("error", "transfering view to mainactivity");
                     Intent intent
                             = new Intent(MainActivity.this,
-                            SignIn.class);
+                            Login_SignUp.class);
                     startActivity(intent);
                 } else {
                 }

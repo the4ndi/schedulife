@@ -71,15 +71,9 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     public void loginUserAccount()
     {
-        // show the visibility of progress bar to show loading
-      //  progressbar.setVisibility(View.VISIBLE);
-
-        // Take the value of two edit texts in Strings
         String email, password;
         email = email_text.getText().toString();
         password = password_text.getText().toString();
-
-        // validations for input email and password
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(),
                     "Please enter email!!",
@@ -87,7 +81,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                     .show();
             return;
         }
-
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(getApplicationContext(),
                     "Please enter password!!",
@@ -95,8 +88,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                     .show();
             return;
         }
-
-        // signin existing user
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
                         new OnCompleteListener<AuthResult>() {
@@ -105,25 +96,12 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                                     @NonNull Task<AuthResult> task)
                             {
                                 if (task.isSuccessful()) {
-                                    //Toast.makeText(getApplicationContext(),
-                                     //       "Login successful!!",
-                                      //      Toast.LENGTH_LONG)
-                                        //    .show();
-
-                                    // hide the progress bar
-                                   // progressBar.setVisibility(View.GONE);
-
-                                    // if sign-in is successful
-                                    // intent to home activity
                                     Intent intent
                                             = new Intent(SignIn.this,
-                                            Personalaccount.class);
-                                            //CreateEvent.class);
-                                         //if you uncomment this and comment line 120 it crashes
-
+                                            //Personalaccount.class);
+                                            MainCreateEvent.class);
                                     startActivity(intent);
                                 }
-
                                 else {
 
                                     // sign-in failed
@@ -131,9 +109,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                                             "Login failed!!",
                                             Toast.LENGTH_LONG)
                                             .show();
-
-                                    // hide the progress bar
-                                   // progressbar.setVisibility(View.GONE);
                                 }
                             }
                         });
