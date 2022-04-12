@@ -73,6 +73,72 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    private Boolean validateName(){
+        String val = name_text.getText().toString();
+
+        if (val.isEmpty()){
+            name_text.setError("Name is Empty");
+            return false;
+        }
+        else if(val.length()>=15){
+            name_text.setError("Name is too long!");
+            return false;
+        }
+        else {
+            name_text.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validateEmail(){
+        String val = email_text.getText().toString();
+        String emailPattern = "[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (val.isEmpty()){
+            email_text.setError("Email is Empty");
+            return false;
+        }
+        else if(val.length()>=35){
+            email_text.setError("Email is too long!");
+            return false;
+        }
+        else if(!val.matches(emailPattern)){
+            email_text.setError("Invalid email address");
+            return false;
+        }
+        else {
+            email_text.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validatePassword(){
+        String val = password_text.getText().toString();
+        String passwordPattern = "^" +
+                "(?=.*[0-9])" +
+                "(?=.*[a-z])" +
+                "(?=.*[A-Z])" +
+                "(?=.*[!@#$%^&+=])" +
+                "(?=\\S+$)" +
+                ".{4,}" +
+                "$";
+        if (val.isEmpty()){
+            password_text.setError("Password is Empty");
+            return false;
+        }
+        //else if(val.length()>=35){
+        //    password_text.setError("Password is too long!");
+        //    return false;
+        //}
+        else if(!val.matches(passwordPattern)){
+            password_text.setError("Make sure your password has atleast 1 digit, 1 lower case letter, 1 upper case letter, 1 special character, no white space, and atleast 4 characters");
+            return false;
+        }
+        else {
+            password_text.setError(null);
+            return true;
+        }
+    }
+
     private void registerNewUser()
     {
 
@@ -85,7 +151,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         email = email_text.getText().toString().trim();
         password = password_text.getText().toString();
 
-
+        if(!validateName() | !validateEmail() | !validatePassword()){
+            return;
+        }
+        /*
         // Validations for input email and password
         if (TextUtils.isEmpty(name)) {
             Toast.makeText(getApplicationContext(),
@@ -109,6 +178,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     .show();
             return;
         }
+        */
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
