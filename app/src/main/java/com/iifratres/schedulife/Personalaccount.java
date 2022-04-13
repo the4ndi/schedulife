@@ -43,6 +43,72 @@ public class Personalaccount extends AppCompatActivity {
     String currentUserId;
 
 
+    private Boolean validateName(){
+        String val = nameedittext.getText().toString();
+
+        if (val.isEmpty()){
+            nameedittext.setError("Name is Empty");
+            return false;
+        }
+        else if(val.length()>=15){
+            nameedittext.setError("Name is too long!");
+            return false;
+        }
+        else {
+            nameedittext.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validateEmail(){
+        String val = emailedittext.getText().toString();
+
+        String emailPattern = "[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (val.isEmpty()){
+            emailedittext.setError("Email is Empty");
+            return false;
+        }
+        else if(val.length()>=35){
+            emailedittext.setError("Email is too long!");
+            return false;
+        }
+        else if(!val.matches(emailPattern)){
+            emailedittext.setError("Invalid email address");
+            return false;
+        }
+        else {
+            emailedittext.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validatePassword(){
+        String val = passwordedittext.getText().toString();
+        String passwordPattern = "^" +
+                "(?=.*[0-9])" +
+                "(?=.*[a-z])" +
+                "(?=.*[A-Z])" +
+                "(?=.*[!@#$%^&+=])" +
+                "(?=\\S+$)" +
+                ".{4,}" +
+                "$";
+        if (val.isEmpty()){
+            passwordedittext.setError("Password is Empty");
+            return false;
+        }
+        //else if(val.length()>=35){
+        //    password_text.setError("Password is too long!");
+        //    return false;
+        //}
+        else if(!val.matches(passwordPattern)){
+            passwordedittext.setError("Make sure your password has atleast 1 digit, 1 lower case letter, 1 upper case letter, 1 special character, no white space, and atleast 4 characters");
+            return false;
+        }
+        else {
+            passwordedittext.setError(null);
+            return true;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +145,9 @@ public class Personalaccount extends AppCompatActivity {
             String email = emailedittext.getText().toString();
             String password = passwordedittext.getText().toString();
 
+            if(!validateName() | !validateEmail() | !validatePassword()){
+                return;
+            }
             // below line is for checking weather the
             // edittext fields are empty or not.
             if (TextUtils.isEmpty(name) && TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {

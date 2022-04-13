@@ -3,18 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
+    android:layout_height="wrap_content"
+    android:background="@drawable/signup_login_background"
     android:orientation="vertical"
-    android:weightSum="7"
+    android:weightSum="9.75"
     tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -22,42 +25,45 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="211dp"
-                    android:layout_marginTop="100dp"
-                    android:padding="45dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="50dp"
+                    android:padding="0dp"
                     android:src="@drawable/schedullifelogo" />
             </LinearLayout>
 
         </RelativeLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:weightSum="0"
+        android:layout_weight="3"
         android:orientation="vertical"
-        android:layout_weight="3">
+        android:weightSum="0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="bottom"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="bottom">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_marginHorizontal="85dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:textAlignment="center"
                 android:fontFamily="arial"
                 android:paddingHorizontal="20dp"
                 android:text="ENTER CREDENTIALS"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <EditText
                 android:id="@+id/namesignup"
@@ -72,11 +78,12 @@
                 android:paddingLeft="20dp"
                 android:textColorHint="#EEEEEE" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <EditText
                 android:id="@+id/emailsignup"
@@ -95,8 +102,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
+
             <EditText
                 android:id="@+id/passwordsignup"
                 android:layout_width="match_parent"
@@ -111,38 +119,46 @@
                 android:textColorHint="#EEEEEE" />
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:layout_weight="1">
+        android:layout_height="7dp"
+        android:layout_weight="1"
+        android:gravity="center">
 
         <Button
             android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_rectangle_grad"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_button"
             android:fontFamily="arial"
-            android:text="Signup"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="23sp" />
-    </LinearLayout>
+            android:padding="0dp"
+            android:text="Sign up"
+            android:textAllCaps="true"
+            android:textColor="#000"
+            app:backgroundTint="@null"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center|bottom"
-        android:layout_weight="1">
+        android:layout_height=".5dp"
+        android:layout_weight="1"
+        android:gravity="center|bottom">
+
         <TextView
             android:id="@+id/loginsignup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Already have an account? Sign In"
-
-            android:textColor="#ffffff"
-            android:layout_marginBottom="20dp"
-            android:textSize="14sp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="25dp"
             android:fontFamily="arial"
-            />
+            android:text="Already have an account? Sign In!"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>
